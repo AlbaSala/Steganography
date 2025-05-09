@@ -124,7 +124,7 @@ public class StegoApp extends JFrame {
         }
     }
     
-    **
+    /**
      * @brief The main method that starts the application by initializing the StegoApp GUI.
      * 
      * @param args Command-line arguments (not used in this application).
