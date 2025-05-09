@@ -3,18 +3,22 @@ import java.io.File;
 import javax.swing.*;
 
 /**
- * @brief Simple Stenography GUI, work in progress ;)
+ * @brief A GUI application for encoding and decoding files using steganography. 
+ *        The application allows users to hide a file within an image and extract it later using a password.
  */
 public class StegoApp extends JFrame {
     private JTextField imagePathField, filePathField; 
     private final JTextField passwordField; 
     private final JButton encodeBtn, decodeBtn; 
     
-    /**
-     * @brief
+   /**
+     * @brief Initializes the GUI components and sets up the layout for encoding and decoding actions.
      * 
-     * @pre
-     * @post
+     * @pre 
+     * - The application is instantiated and the GUI components are initialized with proper layout.
+     * 
+     * @post 
+     * - A fully functional GUI is displayed, allowing the user to choose an image, a file to hide, and provide a password for encoding and decoding actions.
      */
     public StegoApp() {
         setTitle("Java Steganography Tool");
@@ -45,13 +49,16 @@ public class StegoApp extends JFrame {
     }
     
     /**
-     * @brief
+     * @brief Opens a file chooser dialog to select a file and sets the selected file's path in the provided text field.
      * 
-     * @param field
-     * @param extensions
+     * @param field The text field where the selected file path will be displayed.
+     * @param extensions The file extensions that are allowed for selection (e.g., "png", "jpg").
      * 
-     * @pre
-     * @post
+     * @pre 
+     * - A valid file chooser dialog is created.
+     * 
+     * @post 
+     * - The user selects a file, and the path is set in the provided text field.
      */
     private void chooseFile(JTextField field, String... extensions) {
         JFileChooser chooser = new JFileChooser();
@@ -65,10 +72,15 @@ public class StegoApp extends JFrame {
     }
     
     /**
-     * @brief
+     * @brief Handles the encoding process. It reads the user input, encrypts the file, embeds it into the image, 
+     *        and saves the output image.
      * 
-     * @pre
-     * @post
+     * @pre 
+     * - The user has selected a valid image and file to hide, and provided a password.
+     * 
+     * @post 
+     * - The input image has been modified to contain the encrypted file and saved as a new image.
+     * - A success message is shown to the user.
      */
     private void encodeAction() {
         try {
@@ -89,10 +101,14 @@ public class StegoApp extends JFrame {
     }
     
     /**
-     * @brief
+     * @brief Handles the decoding process. It extracts the hidden file from the image using the provided password 
+     *        and saves the extracted file to the disk.
      * 
-     * @pre
-     * @post
+     * @pre 
+     * - The user has selected a valid image containing the hidden file and provided the correct password.
+     * 
+     * @post 
+     * - The hidden file has been successfully extracted and saved to disk. A success message is shown to the user.
      */
     private void decodeAction() {
         try {
@@ -108,13 +124,16 @@ public class StegoApp extends JFrame {
         }
     }
     
-    /**
-     * @brief
+    **
+     * @brief The main method that starts the application by initializing the StegoApp GUI.
      * 
-     * @param args
+     * @param args Command-line arguments (not used in this application).
      * 
-     * @pre
-     * @post
+     * @pre 
+     * - The application is ready to run in a graphical environment.
+     * 
+     * @post 
+     * - The GUI is displayed, allowing the user to encode and decode files with steganography.
      */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> new StegoApp().setVisible(true));
